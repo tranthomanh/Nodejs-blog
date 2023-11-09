@@ -4,9 +4,11 @@
   "description": "",
   "main": "src/index.js",
   "scripts": {
+    "beautiful": "lint-staged",
     "start": "nodemon --inspect src/index.js",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "watch": "node-sass -w src/resourse/scss -o src/public/css"
+    "watch": "node-sass -w src/resourse/scss -o src/public/css",
+    "prepare": "husky install"
   },
   "repository": {
     "type": "git",
@@ -23,13 +25,19 @@
     "url": "https://github.com/tranthomanh/Nodejs-blog/issues"
   },
   "homepage": "https://github.com/tranthomanh/Nodejs-blog#readme",
+  "lint-staged": {
+    "src/**/*.{js,json,scss}": "prettier --single-quote --trailing-comma all --tab-width 4 --write"
+  },
   "dependencies": {
     "express": "^4.18.2",
     "express-handlebars": "^7.1.2"
   },
   "devDependencies": {
+    "husky": "^8.0.3",
+    "lint-staged": "^15.0.2",
     "morgan": "^1.10.0",
     "node-sass": "^9.0.0",
-    "nodemon": "^3.0.1"
+    "nodemon": "^3.0.1",
+    "prettier": "^3.0.3"
   }
 }
