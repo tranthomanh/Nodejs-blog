@@ -3,9 +3,14 @@ const express = require('express');
 const morgan = require('morgan');
 const handlebars = require('express-handlebars');
 const app = express();
+const db = require('./config/db');
+
+// Connect to DB
+db.connect();
+
 const port = 3000;
 
-const route = require('./resourse/routes/index');
+const route = require('./routes/index');
 app.use(express.static(path.join(__dirname, 'public')));
 
 //MIDDLEWARE form html

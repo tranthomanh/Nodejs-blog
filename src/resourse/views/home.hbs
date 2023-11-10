@@ -1,2 +1,20 @@
-<h1>HOME PAGE</h1>
-<h2>NGỌC BÉO</h2>
+<div class="mt-4">
+    <div class="row">
+        
+            
+            {{#each docs}}
+            <div class="col-sm-6 col-lg-4" style="height: 500px;">
+                <div class="card" style="width: 18rem;">
+                <img class="card-img-top" src="{{this.image}}" alt="{{this.name}}">
+                <div class="card-body">
+                    <h5 class="card-title">{{this.name}}</h5>
+                    <p class="card-text">{{this.description}}</p>
+                    <a href="#" class="btn btn-primary">Buy cousrse</a>
+                </div>
+                </div>
+            </div>
+            {{/each}}
+
+        
+    </div>
+</div>
