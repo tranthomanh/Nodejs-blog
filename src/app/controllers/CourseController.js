@@ -22,8 +22,8 @@ class CourseController {
     //[POST] /courses/store
     store(req, res, next) {
         const course = new Course(req.body);
+        console.log(course, req.body);
         course.save().then(() => res.redirect('/'));
-        // res.send('Course saved!')
     }
     //[GET] /courses/:id/edit
     edit(req, res, next) {
@@ -39,6 +39,12 @@ class CourseController {
         Course.updateOne({ _id: req.params.id }, req.body).then((course) =>
             res.redirect('/me/stored/courses'),
         );
+    }
+    //[DELETE] /courses/:id
+    delete(req, res, next) {
+        Course.deleteOne({ _id: req.params.id })
+            .then(() => res.redirect('back'))
+            .catch(next);
     }
 }
 
